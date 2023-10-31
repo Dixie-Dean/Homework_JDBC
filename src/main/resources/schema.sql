@@ -18,4 +18,4 @@ VALUES ('Egil', 'Skallagrímsson', 37, '739856', '18.10.23', 'Shield', 4);
 insert into my_table.CUSTOMERS(name, surname, age, phone_number, date, product_name, amount)
 VALUES ('Alexey', 'Orlov', 49, '794374', '08.10.23', 'Spear', 8);
 
-select * from my_table.CUSTOMERS
+select * from my_table.CUSTOMERS;
