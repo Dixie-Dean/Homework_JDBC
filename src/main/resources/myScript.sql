@@ -1,1 +1,1 @@
-select name, product_name from my_table.customers where name = 'Egil'
+select name, product_name from my_table.customers where name = :name

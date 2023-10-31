@@ -23,9 +23,13 @@ public class MyRepository {
         var parameters = new HashMap<String, String>();
         parameters.put("name", name);
 
-        var productName = namedParameterJdbcTemplate.query(
-                script, parameters, (rs, rowNum) -> rs.getString("product_name"));
-        return productName.toString();
+        var result = namedParameterJdbcTemplate.query(
+                script, parameters, (rs, rowNum) -> {
+                    var customerName = rs.getString("name");
+                    var product = rs.getString("product_name");
+                    return "Customer: " + customerName + " | " + "Product: " + product;
+                });
+        return result.toString();
     }
 
     private static String read(String scriptFileName) {
