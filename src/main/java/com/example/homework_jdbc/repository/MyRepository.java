@@ -25,9 +25,7 @@ public class MyRepository {
     public List<String> getProductName(String name) {
         var parameters = new HashMap<String, String>();
         parameters.put("name", name);
-        var result =  namedParameterJdbcTemplate.queryForList(script, parameters, String.class);
-        result.forEach(System.out::println);
-        return result;
+        return namedParameterJdbcTemplate.queryForList(script, parameters, String.class);
     }
 
     private static String read(String scriptFileName) {
