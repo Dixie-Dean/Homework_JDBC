@@ -1,25 +1,21 @@
-create table my_table.orders(
+create table my_table.ORDERS(
     id serial primary key,
     date varchar,
     product_name varchar,
-    amount integer
+    amount integer,
+    customer_id integer
 );
 
-insert into my_table.orders(date, product_name, amount)
-VALUES ('23.10.23', 'Sword', 10);
-insert into my_table.orders(date, product_name, amount)
-VALUES ('18.10.23', 'Shield', 4);
-insert into my_table.orders(date, product_name, amount)
-VALUES ('08.10.23', 'Spear', 8);
+insert into my_table.ORDERS(date, product_name, amount, customer_id)
+VALUES ('23.10.23', 'Sword', 10, 1);
+insert into my_table.ORDERS(date, product_name, amount, customer_id)
+VALUES ('18.10.23', 'Shield', 4, 2);
+insert into my_table.ORDERS(date, product_name, amount, customer_id)
+VALUES ('08.10.23', 'Spear', 8, 3);
 
-alter table my_table.orders add column customer_id serial;
+alter table my_table.ORDERS
+add constraint fk
+foreign key (customer_id)
+references my_table.customers(id);
 
-alter table my_table.orders
-    add constraint fk1
-        foreign key (customer_id)
-            references my_table.customers(id);
-
-
-select * from my_table.orders o;
-
-drop table my_table.orders
+select * from my_table.ORDERS o;

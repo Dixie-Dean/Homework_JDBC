@@ -1,2 +1,3 @@
-select o.product_name, c.name from my_table.orders o inner join my_table.customers c on o.customer_id = c.id
-where lower(name) = :name;
+select c.name, c.surname, o.product_name, o.amount from my_table.customers c
+join my_table.orders o on c.id = o.customer_id
+where lower(c.name) = :name
